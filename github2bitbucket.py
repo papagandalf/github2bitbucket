@@ -113,7 +113,7 @@ def exportIssues(githubUsername, githubPassword, githubRepoUser, githubRepoName)
       'milestones': milestones
   }
 
-  with zipfile.ZipFile(repo.name + '.zip', 'w') as z:
+  with zipfile.ZipFile(repo.name + 'IssuesForBitbucket.zip', 'w') as z:
       z.writestr('db-1.0.json', json.dumps(output))
 
 if __name__ == "__main__":
