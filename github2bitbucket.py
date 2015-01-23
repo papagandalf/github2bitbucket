@@ -121,11 +121,11 @@ def exportIssues(githubUsername, githubPassword, githubRepoUser, githubRepoName)
 
 if __name__ == "__main__":
   options = read_arguments()
-  print "Github password for {}".format(options.githubUsername)
-  githubPassword = getpass()
-  print "Bitbucket password for {}".format(options.bitbucketUsername)
-  bitbucketPassword = getpass()
-  if args.passphrases:
+  if not args.passphrases:
+    print "Github password for {}".format(options.githubUsername)
+    githubPassword = getpass()
+    print "Bitbucket password for {}".format(options.bitbucketUsername)
+    bitbucketPassword = getpass()
     bitbucketUrl = "https://{0}:{1}@bitbucket.org/{2}".format(options.bitbucketUsername, bitbucketPassword, options.bitbucketRepo)
     githubUrl = "https://{0}:{1}@github.com/{2}".format(options.githubUsername, githubPassword, options.githubRepo)
     githubWikiRepoUrl = "https://{0}:{1}@github.com/{2}.wiki.git".format(options.githubUsername, githubPassword, options.githubRepo)
